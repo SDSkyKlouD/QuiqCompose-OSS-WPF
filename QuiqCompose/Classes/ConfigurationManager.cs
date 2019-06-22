@@ -81,7 +81,7 @@ namespace SDSK.QuiqCompose.WinDesktop.Classes {
             /* Step 4. Check deserialized configuration instance */
             if(ConfigurationInstance != null
                 && !string.IsNullOrWhiteSpace(ConfigurationInstance.AppVersion)
-                && new Regex(@"\d+\.\d+\.\d+\.\d+").IsMatch(ConfigurationInstance.AppVersion)
+                && new Regex(@"(?:\d+\.\d+\.\d+\.\d+)|(?:\d{8})").IsMatch(ConfigurationInstance.AppVersion)
                 && ConfigurationInstance.AccountInformations != null
                 && ConfigurationInstance.UIConfigurations != null) {
                 IsConfigurationLoaded = true;
