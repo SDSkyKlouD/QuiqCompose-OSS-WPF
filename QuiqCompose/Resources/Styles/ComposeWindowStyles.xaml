@@ -1,0 +1,713 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:lex="http://wpflocalizeextension.codeplex.com"
+                    xmlns:mahapps="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+                    xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+                    xmlns:localConverters="clr-namespace:SDSK.QuiqCompose.WinDesktop.Windows.MVVM.Converters"
+                    xmlns:localExtensions="clr-namespace:SDSK.QuiqCompose.WinDesktop.Windows.MVVM.Extensions"
+                    xmlns:localDataTypes="clr-namespace:SDSK.QuiqCompose.WinDesktop.Windows.MVVM.DataTypes">
+    <ControlTemplate x:Key="ComposeWindowButtonTemplate"
+                     TargetType="{x:Type Button}">
+        <Border x:Name="buttonBorder"
+                BorderThickness="1"
+                BorderBrush="{TemplateBinding BorderBrush}"
+                CornerRadius="0"
+                Background="{TemplateBinding Background}">
+            <Grid HorizontalAlignment="Center"
+                  VerticalAlignment="Center">
+                <mahapps:TransitioningContentControl x:Name="buttonContentParent"
+                                                     RenderTransformOrigin="0.5, 0.5"
+                                                     Transition="Default"
+                                                     HorizontalAlignment="Center"
+                                                     VerticalAlignment="Center"
+                                                     HorizontalContentAlignment="Center"
+                                                     VerticalContentAlignment="Center"
+                                                     Foreground="{TemplateBinding Foreground}">
+                    <mahapps:TransitioningContentControl.Content>
+                        <Binding RelativeSource="{RelativeSource Mode=TemplatedParent}"
+                                 Path="(localExtensions:ComposeWindowComposeButtonExtensions.ComposeStatus)">
+                            <Binding.Converter>
+                                <localConverters:ComposeButtonContentConverter />
+                            </Binding.Converter>
+                        </Binding>
+                    </mahapps:TransitioningContentControl.Content>
+                    <mahapps:TransitioningContentControl.RenderTransform>
+                        <ScaleTransform x:Name="contentScaleTransform" />
+                    </mahapps:TransitioningContentControl.RenderTransform>
+                </mahapps:TransitioningContentControl>
+            </Grid>
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver"
+                     Value="True">
+                <Trigger.EnterActions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ThicknessAnimation Storyboard.TargetName="buttonBorder"
+                                                Storyboard.TargetProperty="BorderThickness"
+                                                To="5"
+                                                Duration="0:0:0.5">
+                                <ThicknessAnimation.EasingFunction>
+                                    <CircleEase EasingMode="EaseOut" />
+                                </ThicknessAnimation.EasingFunction>
+                            </ThicknessAnimation>
+                            <DoubleAnimation Storyboard.TargetName="contentScaleTransform"
+                                             Storyboard.TargetProperty="ScaleX"
+                                             To="1.125"
+                                             Duration="0:0:0.5">
+                                <DoubleAnimation.EasingFunction>
+                                    <CircleEase EasingMode="EaseOut" />
+                                </DoubleAnimation.EasingFunction>
+                            </DoubleAnimation>
+                            <DoubleAnimation Storyboard.TargetName="contentScaleTransform"
+                                             Storyboard.TargetProperty="ScaleY"
+                                             To="1.125"
+                                             Duration="0:0:0.5">
+                                <DoubleAnimation.EasingFunction>
+                                    <CircleEase EasingMode="EaseOut" />
+                                </DoubleAnimation.EasingFunction>
+                            </DoubleAnimation>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </Trigger.EnterActions>
+                <Trigger.ExitActions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ThicknessAnimation Storyboard.TargetName="buttonBorder"
+                                                Storyboard.TargetProperty="BorderThickness"
+                                                Duration="0:0:0.5">
+                                <ThicknessAnimation.EasingFunction>
+                                    <CircleEase EasingMode="EaseOut" />
+                                </ThicknessAnimation.EasingFunction>
+                            </ThicknessAnimation>
+                            <DoubleAnimation Storyboard.TargetName="contentScaleTransform"
+                                             Storyboard.TargetProperty="ScaleX"
+                                             Duration="0:0:0.5">
+                                <DoubleAnimation.EasingFunction>
+                                    <CircleEase EasingMode="EaseOut" />
+                                </DoubleAnimation.EasingFunction>
+                            </DoubleAnimation>
+                            <DoubleAnimation Storyboard.TargetName="contentScaleTransform"
+                                             Storyboard.TargetProperty="ScaleY"
+                                             Duration="0:0:0.5">
+                                <DoubleAnimation.EasingFunction>
+                                    <CircleEase EasingMode="EaseOut" />
+                                </DoubleAnimation.EasingFunction>
+                            </DoubleAnimation>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </Trigger.ExitActions>
+            </Trigger>
+            <Trigger Property="IsPressed"
+                     Value="True">
+                <Trigger.EnterActions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation Storyboard.TargetName="buttonBorder"
+                                            Storyboard.TargetProperty="Background.(SolidColorBrush.Color)"
+                                            To="#FFDDDDDD"
+                                            Duration="0:0:0.1" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </Trigger.EnterActions>
+                <Trigger.ExitActions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation Storyboard.TargetName="buttonBorder"
+                                            Storyboard.TargetProperty="Background.(SolidColorBrush.Color)"
+                                            Duration="0:0:0.1" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </Trigger.ExitActions>
+            </Trigger>
+            <Trigger Property="IsEnabled"
+                     Value="False">
+                <Trigger.EnterActions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation Storyboard.TargetName="buttonBorder"
+                                            Storyboard.TargetProperty="BorderBrush.(SolidColorBrush.Color)"
+                                            To="Gray"
+                                            Duration="0:0:0.5" />
+                            <ColorAnimation Storyboard.TargetName="buttonContentParent"
+                                            Storyboard.TargetProperty="Foreground.(SolidColorBrush.Color)"
+                                            To="LightGray"
+                                            Duration="0:0:0.5" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </Trigger.EnterActions>
+                <Trigger.ExitActions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation Storyboard.TargetName="buttonBorder"
+                                            Storyboard.TargetProperty="BorderBrush.(SolidColorBrush.Color)"
+                                            Duration="0:0:0.5" />
+                            <ColorAnimation Storyboard.TargetName="buttonContentParent"
+                                            Storyboard.TargetProperty="Foreground.(SolidColorBrush.Color)"
+                                            Duration="0:0:0.5" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </Trigger.ExitActions>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <Style x:Key="ComposeWindowButtonStyle"
+           TargetType="{x:Type Button}">
+        <Setter Property="OverridesDefaultStyle"
+                Value="True" />
+        <Setter Property="Width"
+                Value="60" />
+        <Setter Property="Height"
+                Value="60" />
+        <Setter Property="BorderBrush"
+                Value="{StaticResource TwitterDarkBlueBrush}" />
+        <Setter Property="Foreground"
+                Value="#FF555555" />
+        <Setter Property="Background"
+                Value="#FFFAFAFA" />
+        <Setter Property="Template"
+                Value="{StaticResource ComposeWindowButtonTemplate}" />
+    </Style>
+
+    <Style x:Key="ComposeWindowStyle"
+           TargetType="{x:Type mahapps:MetroWindow}"
+           BasedOn="{StaticResource CommonMetroWindowStyle}">
+        <Setter Property="WindowTitleBrush"
+                Value="White" />
+        <Setter Property="TitleForeground"
+                Value="Black" />
+        <Setter Property="OverrideDefaultWindowCommandsBrush"
+                Value="Black" />
+        <Setter Property="NonActiveWindowTitleBrush"
+                Value="White" />
+        <Setter Property="ResizeMode"
+                Value="CanResize" />
+        <Setter Property="IsMaxRestoreButtonEnabled"
+                Value="False" />
+        <Setter Property="ShowMaxRestoreButton"
+                Value="False" />
+        <Setter Property="MinWidth"
+                Value="300" />
+        <Setter Property="MinHeight"
+                Value="110" />
+        <Setter Property="AllowsTransparency"
+                Value="True" />
+    </Style>
+
+    <Style x:Key="ComposeWindowTwitterTextLengthStyle"
+           TargetType="{x:Type mahapps:MetroProgressBar}">
+        <Setter Property="MinHeight"
+                Value="4" />
+        <Setter Property="Height"
+                Value="4" />
+        <Setter Property="Maximum"
+                Value="280" />
+        <Setter Property="Foreground"
+                Value="{StaticResource TwitterDarkBlueBrush}" />
+
+        <Style.Triggers>
+            <EventTrigger RoutedEvent="ValueChanged">
+                <BeginStoryboard>
+                    <Storyboard>
+                        <DoubleAnimation Storyboard.TargetProperty="Value"
+                                         Duration="0:0:0.2">
+                            <DoubleAnimation.EasingFunction>
+                                <CubicEase EasingMode="EaseOut" />
+                            </DoubleAnimation.EasingFunction>
+                        </DoubleAnimation>
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+            <DataTrigger Value="Warning">
+                <DataTrigger.Binding>
+                    <Binding Path="Value"
+                             RelativeSource="{RelativeSource Self}">
+                        <Binding.Converter>
+                            <localConverters:TwitterTextLengthProgressBarConverter />
+                        </Binding.Converter>
+                    </Binding>
+                </DataTrigger.Binding>
+
+                <DataTrigger.EnterActions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation Storyboard.TargetProperty="Foreground.(SolidColorBrush.Color)"
+                                            To="#FFFF8000"
+                                            Duration="0:0:0.25" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </DataTrigger.EnterActions>
+                <DataTrigger.ExitActions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation Storyboard.TargetProperty="Foreground.(SolidColorBrush.Color)"
+                                            Duration="0:0:0.25" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </DataTrigger.ExitActions>
+            </DataTrigger>
+            <DataTrigger Value="NearlyLimit">
+                <DataTrigger.Binding>
+                    <Binding Path="Value"
+                             RelativeSource="{RelativeSource Self}">
+                        <Binding.Converter>
+                            <localConverters:TwitterTextLengthProgressBarConverter />
+                        </Binding.Converter>
+                    </Binding>
+                </DataTrigger.Binding>
+
+                <DataTrigger.EnterActions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation Storyboard.TargetProperty="Foreground.(SolidColorBrush.Color)"
+                                            To="#FFFF0000"
+                                            Duration="0:0:0.25" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </DataTrigger.EnterActions>
+                <DataTrigger.ExitActions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation Storyboard.TargetProperty="Foreground.(SolidColorBrush.Color)"
+                                            Duration="0:0:0.25" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </DataTrigger.ExitActions>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+
+    <ControlTemplate x:Key="ComboBoxToggleButtonTemplate"
+                     TargetType="ToggleButton">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition Width="20" />
+            </Grid.ColumnDefinitions>
+            <Border Name="Border"
+                    BorderBrush="Transparent"
+                    CornerRadius="0"
+                    BorderThickness="0"
+                    Background="Transparent" />
+            <Border Grid.Column="1"
+                    BorderBrush="Transparent"
+                    Name="ButtonBorder"
+                    CornerRadius="0"
+                    BorderThickness="0"
+                    Background="Transparent" />
+            <Path Name="Arrow"
+                  Grid.Column="1"
+                  Data="M0,0 L0,2 L4,6 L8,2 L8,0 L4,4 z"
+                  HorizontalAlignment="Center"
+                  Fill="#666"
+                  VerticalAlignment="Center" />
+        </Grid>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver"
+                     Value="True">
+                <Trigger.EnterActions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation Storyboard.TargetName="ButtonBorder"
+                                            Storyboard.TargetProperty="Background.(SolidColorBrush.Color)"
+                                            Duration="0:0:0.15"
+                                            To="#EEE" />
+                            <ColorAnimation Storyboard.TargetName="Arrow"
+                                            Storyboard.TargetProperty="Fill.(SolidColorBrush.Color)"
+                                            Duration="0:0:0.15"
+                                            To="#444" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </Trigger.EnterActions>
+                <Trigger.ExitActions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation Storyboard.TargetName="ButtonBorder"
+                                            Storyboard.TargetProperty="Background.(SolidColorBrush.Color)"
+                                            Duration="0:0:0.15" />
+                            <ColorAnimation Storyboard.TargetName="Arrow"
+                                            Storyboard.TargetProperty="Fill.(SolidColorBrush.Color)"
+                                            Duration="0:0:0.15" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </Trigger.ExitActions>
+            </Trigger>
+            <Trigger Property="IsChecked"
+                     Value="True">
+                <Trigger.EnterActions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation Storyboard.TargetName="ButtonBorder"
+                                            Storyboard.TargetProperty="Background.(SolidColorBrush.Color)"
+                                            Duration="0:0:0.15"
+                                            To="#CCC" />
+                            <ColorAnimation Storyboard.TargetName="Arrow"
+                                            Storyboard.TargetProperty="Fill.(SolidColorBrush.Color)"
+                                            Duration="0:0:0.15"
+                                            To="#222" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </Trigger.EnterActions>
+                <Trigger.ExitActions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation Storyboard.TargetName="ButtonBorder"
+                                            Storyboard.TargetProperty="Background.(SolidColorBrush.Color)"
+                                            Duration="0:0:0.15" />
+                            <ColorAnimation Storyboard.TargetName="Arrow"
+                                            Storyboard.TargetProperty="Fill.(SolidColorBrush.Color)"
+                                            Duration="0:0:0.15" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </Trigger.ExitActions>
+            </Trigger>
+            <Trigger Property="IsEnabled"
+                     Value="False">
+                <Setter Property="Background"
+                        TargetName="Border"
+                        Value="#CCC" />
+                <Setter Property="Background"
+                        TargetName="ButtonBorder"
+                        Value="#CCC" />
+                <Setter Property="BorderBrush"
+                        TargetName="ButtonBorder"
+                        Value="#CCC" />
+                <Setter Property="Foreground"
+                        Value="#CCC" />
+                <Setter Property="Fill"
+                        TargetName="Arrow"
+                        Value="#999" />
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <DataTemplate x:Key="ComposeWindowAccountSelectionComboBoxDropdownItemTemplate"
+                  DataType="{x:Type localDataTypes:ComposeWindowAccountComboBoxItem}">
+        <Grid Name="TemplateGrid"
+              Margin="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="0"
+                    Width="{Binding ActualHeight, ElementName=TemplateGrid}"
+                    Height="{Binding ActualHeight, ElementName=TemplateGrid}"
+                    Margin="0, 0, 5, 0"
+                    Command="{Binding Path=(localExtensions:ComposeWindowAccountComboBoxExtensions.RemoveAccountButtonCommand), RelativeSource={RelativeSource AncestorType={x:Type ComboBox}, Mode=FindAncestor}, Mode=OneWay}"
+                    CommandParameter="{Binding}">
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid>
+                            <Ellipse Name="ProfileImageEllipse"
+                                     VerticalAlignment="Stretch"
+                                     HorizontalAlignment="Stretch"
+                                     RenderOptions.BitmapScalingMode="HighQuality"
+                                     Panel.ZIndex="393939">
+                                <Ellipse.Fill>
+                                    <ImageBrush ImageSource="{Binding ProfileImageUrl}" />
+                                </Ellipse.Fill>
+                            </Ellipse>
+
+                            <Border Name="RemoveAccountPanel"
+                                    VerticalAlignment="Stretch"
+                                    HorizontalAlignment="Stretch"
+                                    Opacity="0">
+                                <iconPacks:PackIconMaterial Kind="Delete"
+                                                            Foreground="Red"
+                                                            HorizontalAlignment="Center"
+                                                            VerticalAlignment="Center" />
+                            </Border>
+                        </Grid>
+
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver"
+                                     Value="True">
+                                <Trigger.EnterActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetName="ProfileImageEllipse"
+                                                             Storyboard.TargetProperty="Opacity"
+                                                             To="0"
+                                                             Duration="0:0:0.25" />
+                                            <DoubleAnimation Storyboard.TargetName="RemoveAccountPanel"
+                                                             Storyboard.TargetProperty="Opacity"
+                                                             To="1"
+                                                             Duration="0:0:0.25" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.EnterActions>
+                                <Trigger.ExitActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetName="ProfileImageEllipse"
+                                                             Storyboard.TargetProperty="Opacity"
+                                                             Duration="0:0:0.25" />
+                                            <DoubleAnimation Storyboard.TargetName="RemoveAccountPanel"
+                                                             Storyboard.TargetProperty="Opacity"
+                                                             Duration="0:0:0.25" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.ExitActions>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="0"
+                           Text="{Binding Nickname}"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Center"
+                           FontSize="12" />
+                <TextBlock Grid.Row="1"
+                           Text="{Binding ScreenNameWithAt}"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Center"
+                           FontSize="8" />
+            </Grid>
+        </Grid>
+    </DataTemplate>
+
+    <DataTemplate x:Key="ComposeWindowAccountSelectionComboBoxSelectedItemTemplate"
+                  DataType="{x:Type localDataTypes:ComposeWindowAccountComboBoxItem}">
+        <Ellipse Name="ProfileImageEllipse"
+                 Height="25"
+                 Width="{Binding ActualHeight, RelativeSource={RelativeSource Self}}"
+                 Visibility="{Binding Path=(localExtensions:ComposeWindowAccountComboBoxExtensions.ProfileImageVisibility), RelativeSource={RelativeSource AncestorType={x:Type ComboBox}, Mode=FindAncestor}, Mode=OneWay}"
+                 RenderOptions.BitmapScalingMode="HighQuality">
+            <Ellipse.Fill>
+                <ImageBrush ImageSource="{Binding ProfileImageUrl}" />
+            </Ellipse.Fill>
+        </Ellipse>
+    </DataTemplate>
+
+    <Style x:Key="ComposeWindowAccountSelectionComboBox"
+           TargetType="{x:Type ComboBox}">
+        <Setter Property="Background"
+                Value="Transparent" />
+        <Setter Property="BorderBrush"
+                Value="Transparent" />
+        <Setter Property="Foreground"
+                Value="Black" />
+        <Setter Property="Height"
+                Value="30" />
+        <Setter Property="MinWidth"
+                Value="50" />
+        <Setter Property="SnapsToDevicePixels"
+                Value="True" />
+        <Setter Property="OverridesDefaultStyle"
+                Value="True" />
+        <Setter Property="ScrollViewer.VerticalScrollBarVisibility"
+                Value="Auto" />
+        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility"
+                Value="Hidden" />
+        <Setter Property="ScrollViewer.CanContentScroll"
+                Value="True" />
+        <Setter Property="FocusVisualStyle"
+                Value="{x:Null}" />
+        <Setter Property="IsEditable"
+                Value="False" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ComboBox}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="20" />
+                            <ColumnDefinition Width="20" />
+                        </Grid.ColumnDefinitions>
+
+                        <ToggleButton Name="ToggleButton"
+                                      Grid.Column="1"
+                                      BorderBrush="{TemplateBinding BorderBrush}"
+                                      Background="{TemplateBinding Background}"
+                                      Foreground="{TemplateBinding Foreground}"
+                                      Focusable="False"
+                                      ClickMode="Press"
+                                      IsChecked="{Binding Path=IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
+                                      Template="{StaticResource ComboBoxToggleButtonTemplate}"
+                                      ToolTip="{lex:Loc ComposeWindow_AccountList_ToolTip}" />
+                        <Button Name="AccountAddButton"
+                                Grid.Column="2"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                Background="{TemplateBinding Background}"
+                                Foreground="{TemplateBinding Foreground}"
+                                Focusable="False"
+                                Command="{Binding Path=(localExtensions:ComposeWindowAccountComboBoxExtensions.AddAccountButtonCommand), RelativeSource={RelativeSource TemplatedParent}}"
+                                ToolTip="{lex:Loc ComposeWindow_AddAccount_ToolTip}">
+                            <Button.Template>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition />
+                                            <ColumnDefinition Width="20" />
+                                        </Grid.ColumnDefinitions>
+                                        <Border Name="Border"
+                                                BorderBrush="Transparent"
+                                                CornerRadius="0"
+                                                BorderThickness="0"
+                                                Background="Transparent" />
+                                        <Border Grid.Column="1"
+                                                BorderBrush="Transparent"
+                                                Name="ButtonBorder"
+                                                CornerRadius="0"
+                                                BorderThickness="0"
+                                                Background="Transparent" />
+                                        <Path Name="Plus"
+                                              Grid.Column="1"
+                                              Data="M3.25,0 L3.25,3 L0,3.25 L0,4.75 L3.25,4.75 L3.25,8 L4.75,8 L4.75,4.75 L8,4.75 L8,3.25 L4.75,3 L4.75,0 z"
+                                              HorizontalAlignment="Center"
+                                              Fill="#666"
+                                              VerticalAlignment="Center"
+                                              SnapsToDevicePixels="True" />
+                                    </Grid>
+
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver"
+                                                 Value="True">
+                                            <Trigger.EnterActions>
+                                                <BeginStoryboard>
+                                                    <Storyboard>
+                                                        <ColorAnimation Storyboard.TargetName="ButtonBorder"
+                                                                        Storyboard.TargetProperty="Background.(SolidColorBrush.Color)"
+                                                                        Duration="0:0:0.15"
+                                                                        To="#EEE" />
+                                                        <ColorAnimation Storyboard.TargetName="Plus"
+                                                                        Storyboard.TargetProperty="Fill.(SolidColorBrush.Color)"
+                                                                        Duration="0:0:0.15"
+                                                                        To="#444" />
+                                                    </Storyboard>
+                                                </BeginStoryboard>
+                                            </Trigger.EnterActions>
+                                            <Trigger.ExitActions>
+                                                <BeginStoryboard>
+                                                    <Storyboard>
+                                                        <ColorAnimation Storyboard.TargetName="ButtonBorder"
+                                                                        Storyboard.TargetProperty="Background.(SolidColorBrush.Color)"
+                                                                        Duration="0:0:0.15" />
+                                                        <ColorAnimation Storyboard.TargetName="Plus"
+                                                                        Storyboard.TargetProperty="Fill.(SolidColorBrush.Color)"
+                                                                        Duration="0:0:0.15" />
+                                                    </Storyboard>
+                                                </BeginStoryboard>
+                                            </Trigger.ExitActions>
+                                        </Trigger>
+                                        <Trigger Property="IsPressed"
+                                                 Value="True">
+                                            <Trigger.EnterActions>
+                                                <BeginStoryboard>
+                                                    <Storyboard>
+                                                        <ColorAnimation Storyboard.TargetName="ButtonBorder"
+                                                                        Storyboard.TargetProperty="Background.(SolidColorBrush.Color)"
+                                                                        Duration="0:0:0.15"
+                                                                        To="#CCC" />
+                                                        <ColorAnimation Storyboard.TargetName="Plus"
+                                                                        Storyboard.TargetProperty="Fill.(SolidColorBrush.Color)"
+                                                                        Duration="0:0:0.15"
+                                                                        To="#222" />
+                                                    </Storyboard>
+                                                </BeginStoryboard>
+                                            </Trigger.EnterActions>
+                                            <Trigger.ExitActions>
+                                                <BeginStoryboard>
+                                                    <Storyboard>
+                                                        <ColorAnimation Storyboard.TargetName="ButtonBorder"
+                                                                        Storyboard.TargetProperty="Background.(SolidColorBrush.Color)"
+                                                                        Duration="0:0:0.15" />
+                                                        <ColorAnimation Storyboard.TargetName="Plus"
+                                                                        Storyboard.TargetProperty="Fill.(SolidColorBrush.Color)"
+                                                                        Duration="0:0:0.15" />
+                                                    </Storyboard>
+                                                </BeginStoryboard>
+                                            </Trigger.ExitActions>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button Name="ContentSiteParent"
+                                Margin="1, 1, 2, 1"
+                                Foreground="Black"
+                                Background="#01FFFFFF"
+                                VerticalAlignment="Stretch"
+                                OverridesDefaultStyle="True"
+                                FocusVisualStyle="{x:Null}"
+                                localExtensions:ToolTipExtensions.ToolTipText="{Binding Path=(localExtensions:ToolTipExtensions.ToolTipText), RelativeSource={RelativeSource TemplatedParent}}"
+                                Command="{Binding Path=(localExtensions:ComposeWindowAccountComboBoxExtensions.OpenUserAccountWithBrowserCommand), RelativeSource={RelativeSource TemplatedParent}}">
+                            <ContentPresenter Name="ContentSite"
+                                              IsHitTestVisible="False"
+                                              Content="{TemplateBinding SelectionBoxItem}"
+                                              ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"
+                                              ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}"
+                                              VerticalAlignment="Center" />
+                            <Button.Template>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border BorderThickness="0"
+                                            BorderBrush="Transparent"
+                                            CornerRadius="0"
+                                            Background="{TemplateBinding Background}">
+                                        <ContentPresenter HorizontalAlignment="Center"
+                                                          VerticalAlignment="Center" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Popup Name="Popup"
+                               Placement="Bottom"
+                               Focusable="False"
+                               AllowsTransparency="True"
+                               IsOpen="{TemplateBinding IsDropDownOpen}"
+                               PopupAnimation="Fade"
+                               MinWidth="120">
+                            <Grid Name="DropDown"
+                                  SnapsToDevicePixels="True"
+                                  MinWidth="{TemplateBinding ActualWidth}"
+                                  MaxHeight="{TemplateBinding MaxDropDownHeight}">
+                                <Border Name="DropDownBorder"
+                                        Background="White"
+                                        CornerRadius="0"
+                                        BorderThickness="1"
+                                        BorderBrush="{StaticResource AccentColorBrush}">
+                                    <ScrollViewer SnapsToDevicePixels="True">
+                                        <ItemsPresenter KeyboardNavigation.DirectionalNavigation="Contained" />
+                                    </ScrollViewer>
+                                </Border>
+                            </Grid>
+                        </Popup>
+                    </Grid>
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="HasItems"
+                                 Value="False">
+                            <Setter TargetName="DropDownBorder"
+                                    Property="MinHeight"
+                                    Value="50" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled"
+                                 Value="False">
+                            <Setter Property="Foreground"
+                                    Value="LightGray" />
+                        </Trigger>
+                        <Trigger Property="IsGrouping"
+                                 Value="True">
+                            <Setter Property="ScrollViewer.CanContentScroll"
+                                    Value="False" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="ItemTemplateSelector"
+                Value="{localExtensions:ComboBoxItemTemplateSelector
+                            SelectedItemTemplate={StaticResource ComposeWindowAccountSelectionComboBoxSelectedItemTemplate},
+                            DropdownItemTemplate={StaticResource ComposeWindowAccountSelectionComboBoxDropdownItemTemplate}}" />
+    </Style>
+</ResourceDictionary>

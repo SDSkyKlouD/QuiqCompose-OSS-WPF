@@ -1,0 +1,139 @@
+﻿<mahApps:MetroWindow xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                     xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                     xmlns:lex="http://wpflocalizeextension.codeplex.com"
+                     xmlns:mahApps="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+                     xmlns:localControls="clr-namespace:SDSK.QuiqCompose.WinDesktop.Controls"
+                     xmlns:localExtensions="clr-namespace:SDSK.QuiqCompose.WinDesktop.Windows.MVVM.Extensions"
+                     xmlns:localViewModels="clr-namespace:SDSK.QuiqCompose.WinDesktop.Windows.MVVM.ViewModels"
+                     xmlns:localConverters="clr-namespace:SDSK.QuiqCompose.WinDesktop.Windows.MVVM.Converters"
+                     x:Name="settingsWindow"
+                     x:Class="SDSK.QuiqCompose.WinDesktop.Windows.SettingsWindow"
+                     lex:LocalizeDictionary.DesignCulture="en"
+                     lex:ResxLocalizationProvider.DefaultAssembly="QuiqCompose-WinDesktop"
+                     lex:ResxLocalizationProvider.DefaultDictionary="Strings"
+                     Title="{lex:Loc WindowTitle_Settings}"
+                     Width="400"
+                     Height="400"
+                     Style="{StaticResource MetroWindowWithBottomBarStyle}">
+    <mahApps:MetroWindow.DataContext>
+        <localViewModels:SettingsWindowViewModel />
+    </mahApps:MetroWindow.DataContext>
+    <mahApps:MetroWindow.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Resources/Styles/SettingsWindowStyles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </mahApps:MetroWindow.Resources>
+
+    <Grid>
+        <iconPacks:PackIconMaterial Kind="Settings"
+                                    Width="300"
+                                    Height="{Binding Width, RelativeSource={RelativeSource Self}}"
+                                    Foreground="LightSlateGray"
+                                    Opacity="0.25"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Bottom"
+                                    Margin="-75"
+                                    Spin="True"
+                                    SpinDuration="50"
+                                    Panel.ZIndex="-3939"
+                                    PreviewMouseDown="MouseDownDragMove" />
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Grid Margin="5"
+                  Grid.Row="0">
+                <TabControl mahApps:TabControlHelper.IsUnderlined="True"
+                            mahApps:TabControlHelper.Underlined="TabPanel"
+                            Background="Transparent">
+                    <TabItem Header="{lex:Loc SettingsWindow_GeneralTab_Header}">
+                        <ScrollViewer VerticalScrollBarVisibility="Auto"
+                                      HorizontalScrollBarVisibility="Disabled">
+                            <StackPanel Orientation="Vertical"
+                                        Margin="5">
+                                <StackPanel Orientation="Horizontal"
+                                            Margin="5">
+                                    <TextBlock Text="{lex:Loc SettingsWindow_General_Languages}"
+                                               VerticalAlignment="Center" />
+                                    <ComboBox Margin="5, 0"
+                                              ItemsSource="{Binding LanguagesItemsSource}"
+                                              SelectedIndex="{Binding LanguagesSelectedIndex, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                              ItemTemplate="{StaticResource SettingsWindowLanguageListComboBoxItemTemplate}" />
+                                </StackPanel>
+                                <CheckBox Content="{lex:Loc SettingsWindow_General_TopMost}"
+                                          Margin="5"
+                                          IsChecked="{Binding TopMostChecked, Mode=TwoWay}"
+                                          Command="{Binding TopMostCommand}"
+                                          CommandParameter="{Binding IsChecked, RelativeSource={RelativeSource Self}}" />
+                            </StackPanel>
+                        </ScrollViewer>
+                    </TabItem>
+                    <TabItem Header="{lex:Loc SettingsWindow_UiTab_Header}">
+                        <ScrollViewer VerticalScrollBarVisibility="Auto"
+                                      HorizontalScrollBarVisibility="Disabled">
+                            <StackPanel Orientation="Vertical"
+                                        Margin="5">
+                                <CheckBox Content="{lex:Loc SettingsWindow_Ui_OpenProfilePageOnAccountClick}"
+                                          Margin="5"
+                                          IsChecked="{Binding OpenProfilePageOnAccountClickChecked, Mode=TwoWay}"
+                                          Command="{Binding OpenProfilePageOnAccountClickCommand}"
+                                          CommandParameter="{Binding IsChecked, RelativeSource={RelativeSource Self}}" />
+                                <CheckBox Content="{lex:Loc SettingsWindow_Ui_ShowProfileImage}"
+                                          Margin="5"
+                                          IsChecked="{Binding ShowProfileImageChecked, Mode=TwoWay}"
+                                          Command="{Binding ShowProfileImageCommand}"
+                                          CommandParameter="{Binding IsChecked, RelativeSource={RelativeSource Self}}" />
+                                <CheckBox Content="{lex:Loc SettingsWindow_Ui_SaveLastAccountPosition}"
+                                          Margin="5"
+                                          IsChecked="{Binding SaveLastAccountPositionChecked, Mode=TwoWay}"
+                                          Command="{Binding SaveLastAccountPositionCommand}"
+                                          CommandParameter="{Binding IsChecked, RelativeSource={RelativeSource Self}}" />
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
+
+                                    <TextBlock Grid.Column="0"
+                                               Text="{lex:Loc SettingsWindow_Ui_ComposeWindowOpacity}" />
+                                    <Slider Grid.Column="1"
+                                            Margin="5, 0, 0, 0"
+                                            Minimum="10"
+                                            Maximum="100"
+                                            LargeChange="10"
+                                            SmallChange="1"
+                                            AutoToolTipPlacement="BottomRight"
+                                            AutoToolTipPrecision="0"
+                                            Value="{Binding ComposeWindowOpacityValue}">
+                                    </Slider>
+                                </Grid>
+                            </StackPanel>
+                        </ScrollViewer>
+                    </TabItem>
+                </TabControl>
+            </Grid>
+
+            <localControls:MetroWindowBottomControlBar Grid.Row="2"
+                                                       HorizontalAlignment="Stretch">
+                <localControls:MetroWindowBottomControlBar.LeftControls>
+                    <Button Content="{iconPacks:Material Restart}"
+                            Command="{Binding ResetConfigurationCommandBinding}"
+                            localExtensions:ToolTipExtensions.ToolTipText="{lex:Loc SettingsWindow_BottomBar_Reset}" />
+                </localControls:MetroWindowBottomControlBar.LeftControls>
+                <localControls:MetroWindowBottomControlBar.RightControls>
+                    <Button Content="{iconPacks:Material Check}"
+                            Command="{Binding CloseWindowCommandBinding}"
+                            CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type mahApps:MetroWindow}}}"
+                            localExtensions:ToolTipExtensions.ToolTipText="{lex:Loc Global_OK}" />
+                </localControls:MetroWindowBottomControlBar.RightControls>
+            </localControls:MetroWindowBottomControlBar>
+        </Grid>
+    </Grid>
+</mahApps:MetroWindow>

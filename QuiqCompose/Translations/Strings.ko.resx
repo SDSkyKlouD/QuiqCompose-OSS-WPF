@@ -1,0 +1,341 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+	<xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+		<xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+		<xsd:element name="root" msdata:IsDataSet="true">
+			<xsd:complexType>
+				<xsd:choice maxOccurs="unbounded">
+					<xsd:element name="metadata">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" />
+							</xsd:sequence>
+							<xsd:attribute name="name" use="required" type="xsd:string" />
+							<xsd:attribute name="type" type="xsd:string" />
+							<xsd:attribute name="mimetype" type="xsd:string" />
+							<xsd:attribute ref="xml:space" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="assembly">
+						<xsd:complexType>
+							<xsd:attribute name="alias" type="xsd:string" />
+							<xsd:attribute name="name" type="xsd:string" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="data">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+								<xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+							<xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+							<xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+							<xsd:attribute ref="xml:space" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="resheader">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" />
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:choice>
+			</xsd:complexType>
+		</xsd:element>
+	</xsd:schema>
+	<resheader name="resmimetype">
+		<value>text/microsoft-resx</value>
+	</resheader>
+	<resheader name="version">
+		<value>2.0</value>
+	</resheader>
+	<resheader name="reader">
+		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<resheader name="writer">
+		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<data name="WindowTitle_Compose" xml:space="preserve">
+    <value>작성</value>
+  </data>
+	<data name="Global_ProgramName" xml:space="preserve">
+    <value>QuiqCompose</value>
+  </data>
+	<data name="ComposeWindow_TextBox_Hint1" xml:space="preserve">
+    <value>지금 무엇을 하고 있나요?</value>
+  </data>
+	<data name="WindowTitle_TwitterLogin" xml:space="preserve">
+    <value>트위터 앱 인증</value>
+  </data>
+	<data name="ComposeWindow_AddAccount_ToolTip" xml:space="preserve">
+    <value>계정 추가</value>
+  </data>
+	<data name="TwitterLoginWindow_Pin_Hint" xml:space="preserve">
+    <value>7자리 PIN 번호 입력</value>
+  </data>
+	<data name="ComposeWindow_AccountList_ToolTip" xml:space="preserve">
+    <value>계정 목록 보기</value>
+  </data>
+	<data name="ComposeWindow_Send_ToolTip" xml:space="preserve">
+    <value>보내기</value>
+  </data>
+	<data name="Global_Settings" xml:space="preserve">
+    <value>설정</value>
+  </data>
+	<data name="ComposeWindow_AppInfo_ToolTip" xml:space="preserve">
+    <value>프로그램 정보</value>
+  </data>
+	<data name="WindowTitle_Settings" xml:space="preserve">
+    <value>프로그램 설정</value>
+  </data>
+	<data name="WindowTitle_AppInfo" xml:space="preserve">
+    <value>프로그램 정보</value>
+  </data>
+	<data name="WindowTitle_UpdateFound" xml:space="preserve">
+    <value>업데이트 확인</value>
+  </data>
+	<data name="UpdateFoundWindow_FoundText" xml:space="preserve">
+    <value>새로운 버전이 준비되었습니다!</value>
+  </data>
+	<data name="UpdateFoundWindow_NewVerAndDate" xml:space="preserve">
+    <value>버전 v{0}, 배포 일자 : {1}</value>
+  </data>
+	<data name="UpdateFoundWindow_CurrentVer" xml:space="preserve">
+    <value>현재 버전 v{0}</value>
+  </data>
+	<data name="UpdateFoundWindow_WrongDownloadUrl" xml:space="preserve">
+    <value>다운로드 URL에 문제가 있는 것 같습니다. 개발자에게 연락 바랍니다.</value>
+  </data>
+	<data name="Global_Cancel" xml:space="preserve">
+    <value>취소</value>
+  </data>
+	<data name="Global_Download" xml:space="preserve">
+    <value>다운로드</value>
+  </data>
+	<data name="UpdateFoundWindow_WrongChangelogUrl" xml:space="preserve">
+    <value>변경 사항 URL에 문제가 있거나 제공되지 않은 것 같습니다. 개발자에게 연락 바랍니다.</value>
+  </data>
+	<data name="UpdateFoundWindow_ViewChangelog" xml:space="preserve">
+    <value>변경 사항 보기</value>
+  </data>
+	<data name="ComposeWindow_TextBox_ShortcutsToolTip" xml:space="preserve">
+    <value>Ctrl+Enter : 바로 보내기
+Ctrl+마우스 휠 : 글씨 크기 줌 인/줌 아웃</value>
+  </data>
+	<data name="ComposeWindow_OpenAccountWithBrowser_ToolTip" xml:space="preserve">
+    <value>브라우저에서 프로필 페이지 열기</value>
+  </data>
+	<data name="SettingsWindow_GeneralTab_Header" xml:space="preserve">
+    <value>기본</value>
+  </data>
+	<data name="SettingsWindow_General_TopMost" xml:space="preserve">
+    <value>창을 항상 위로 표시</value>
+  </data>
+	<data name="SettingsWindow_General_CheckUpdatesOnStartup" xml:space="preserve">
+    <value>애플리케이션 실행 시 업데이트 확인</value>
+  </data>
+	<data name="SettingsWindow_UiTab_Header" xml:space="preserve">
+    <value>외관</value>
+  </data>
+	<data name="SettingsWindow_Ui_OpenProfilePageOnAccountClick" xml:space="preserve">
+    <value>작성 창에서 프로필 이미지를 누르면 프로필 페이지 열기</value>
+  </data>
+	<data name="WindowTitle_Preparation" xml:space="preserve">
+    <value>준비 중...</value>
+  </data>
+	<data name="PreparationWindow_Status_CheckForInternetConnection" xml:space="preserve">
+    <value>인터넷 연결 확인 중...</value>
+  </data>
+	<data name="PreparationWindow_Status_CheckForInternetConnection_Failed" xml:space="preserve">
+    <value>인터넷 연결을 확인할 수 없습니다.</value>
+  </data>
+	<data name="SettingsWindow_Ui_ShowProfileImage" xml:space="preserve">
+    <value>계정의 프로필 이미지 표시</value>
+  </data>
+	<data name="PreparationWindow_Status_LoadConfigurations" xml:space="preserve">
+    <value>설정을 불러오는 중...</value>
+  </data>
+	<data name="PreparationWindow_Status_CheckForUpdate" xml:space="preserve">
+    <value>업데이트 확인 시작 중...</value>
+  </data>
+	<data name="PreparationWindow_Status_UpdateAccountInfo" xml:space="preserve">
+    <value>계정 정보 업데이트 중...</value>
+  </data>
+	<data name="SettingsWindow_General_Languages" xml:space="preserve">
+    <value>언어</value>
+  </data>
+	<data name="AppInfoWindow_VersionFormat" xml:space="preserve">
+    <value>버전 v{0}</value>
+  </data>
+	<data name="ComposeWindow_TextBox_Hint2" xml:space="preserve">
+    <value>지금 무슨 일이 일어나고 있나요?</value>
+  </data>
+	<data name="ComposeWindow_TextBox_Hint3" xml:space="preserve">
+    <value>지금 무슨 생각을 하고 있나요?</value>
+  </data>
+	<data name="ComposeWindow_TextBox_Hint4" xml:space="preserve">
+    <value>지금 하고 싶은 말이 무엇인가요?</value>
+  </data>
+	<data name="ComposeWindow_TextBox_Hint5" xml:space="preserve">
+    <value>지금 기분이 어떤가요?</value>
+  </data>
+	<data name="SettingsWindow_Privacy_ReportTweetCount" xml:space="preserve">
+    <value>트윗 작성 횟수를 서버로 전송</value>
+  </data>
+	<data name="SettingsWindow_Privacy_ReportTweetCount_Hint" xml:space="preserve">
+    <value>"오직" 작성된 트윗 개수만 서버로 전송됩니다.
+이 정보는 분석 및 홈페이지에서의 이 프로그램을 통해 작성된 총 트윗 개수 표시용으로 사용될 예정입니다.</value>
+  </data>
+	<data name="SettingsWindow_PrivacyTab_Header" xml:space="preserve">
+    <value>개인 정보</value>
+  </data>
+	<data name="UpdateFoundWindow_Channel_Beta" xml:space="preserve">
+    <value>베타 릴리즈</value>
+  </data>
+	<data name="UpdateFoundWindow_Channel_Testing" xml:space="preserve">
+    <value>테스팅 릴리즈</value>
+  </data>
+	<data name="UpdateFoundWindow_Channel_Official" xml:space="preserve">
+    <value>공식 릴리즈</value>
+  </data>
+	<data name="UpdateFoundWindow_Channel_Unspecified" xml:space="preserve">
+    <value>미지정된 채널</value>
+  </data>
+	<data name="SettingsWindow_Privacy_ReportTweetCount_PermanentToolTip" xml:space="preserve">
+    <value>이 설정은 사용자 개인 정보를 요구하는 설정이 아님으로 판단되어, 영구히 활성화되었습니다.</value>
+  </data>
+	<data name="PreparationWindow_Ask_RecreateConfigurationFile" xml:space="preserve">
+    <value>설정 파일에 문제가 발견되어 파일을 다시 생성해야합니다. 파일을 다시 생성하게 되면 기존의 설정들은 전부 초기화됩니다.
+설정 파일을 다시 생성하지 않는다면, QuiqCompose가 오작동할 가능성이 큽니다.
+
+설정 파일을 다시 생성하시겠습니까?</value>
+  </data>
+	<data name="Global_OK" xml:space="preserve">
+    <value>확인</value>
+  </data>
+	<data name="SettingsWindow_BottomBar_Reset" xml:space="preserve">
+    <value>설정 초기화</value>
+  </data>
+	<data name="SettingsWindow_BottomBar_Reset_Message" xml:space="preserve">
+    <value>정말로 설정을 초기화하시겠습니까?
+"예"를 선택하면, 계정 정보를 제외한 모든 설정이 초기화되고 프로그램이 재시작됩니다.</value>
+  </data>
+	<data name="SettingsWindow_Ui_SaveLastAccountPosition" xml:space="preserve">
+    <value>마지막으로 선택한 계정 위치 유지</value>
+  </data>
+	<data name="TwitterLoginWindow_Commands_Reload" xml:space="preserve">
+    <value>인증 페이지 다시 열기</value>
+  </data>
+	<data name="TwitterLoginWindow_Messages_AuthedBefore" xml:space="preserve">
+    <value>이 계정은 이미 인증되었습니다.</value>
+  </data>
+	<data name="TwitterLoginWindow_Messages_Failed" xml:space="preserve">
+    <value>오류로 인해 계정을 인증할 수 없었습니다. 다시 시도해 주세요.</value>
+  </data>
+	<data name="Global_Close" xml:space="preserve">
+    <value>닫기</value>
+  </data>
+	<data name="AppInfoWindow_OverviewTab_Header" xml:space="preserve">
+    <value>프로그램 정보</value>
+  </data>
+	<data name="ComposeWindow_RemoveAccount_Message" xml:space="preserve">
+    <value>해당 계정을 목록에서 삭제합니다.
+※ 목록에 계정을 다시 추가하려면 인증 과정을 다시 거쳐야 합니다.</value>
+  </data>
+	<data name="Global_Warning" xml:space="preserve">
+    <value>경고</value>
+  </data>
+	<data name="AppInfoWindow_OSLTab_Header" xml:space="preserve">
+    <value>오픈 소스 라이브러리</value>
+  </data>
+	<data name="Global_Homepage" xml:space="preserve">
+    <value>홈페이지</value>
+  </data>
+	<data name="AppInfoWindow_OSL_ShowDepsText" xml:space="preserve">
+    <value>종속 라이브러리</value>
+  </data>
+	<data name="Global_Yes" xml:space="preserve">
+    <value>예</value>
+  </data>
+	<data name="Global_No" xml:space="preserve">
+    <value>아니오</value>
+  </data>
+	<data name="ComposeSubWindow_Media_Title" xml:space="preserve">
+    <value>미디어</value>
+  </data>
+	<data name="ComposeWindow_TextBox_Hint_AddAccount" xml:space="preserve">
+    <value>계정을 추가해주세요!
+계정은 상단의 더하기(+) 버튼을 눌러 추가할 수 있어요.</value>
+  </data>
+	<data name="ComposeSubWindow_AddMediaDialog_Title" xml:space="preserve">
+		<value>미디어 파일 선택</value>
+	</data>
+	<data name="ComposeSubWindow_AddMediaDialog_Filter_StillImage" xml:space="preserve">
+		<value>사진 및 그림 파일</value>
+	</data>
+	<data name="SettingsWindow_Ui_ComposeWindowOpacity" xml:space="preserve">
+		<value>작성 창 투명도</value>
+	</data>
+</root>

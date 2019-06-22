@@ -1,0 +1,90 @@
+﻿[
+    {
+        "libraryName": "Tweetinvi",
+        "libraryDesc": "Twitter API implementations for .NET",
+        "libraryUrl": "https://github.com/linvi/tweetinvi",
+        "licenseType": "MIT",
+        "dependencies": [
+            {
+                "libraryName": "Autofac",
+                "libraryDesc": "Autofac is an addictive Inversion of Control container for .NET Core, ASP.NET Core, .NET 4.5.1+, Universal Windows apps, and more.",
+                "libraryUrl": "https://autofac.org/",
+                "licenseType": "MIT"
+            },
+            {
+                "libraryName": "AsyncEx",
+                "libraryDesc": "A helper library for async/await.",
+                "libraryUrl": "https://github.com/StephenCleary/AsyncEx",
+                "licenseType": "MIT"
+            }
+        ]
+    },
+    {
+        "libraryName": "twitter-text",
+        "libraryDesc": "Twitter Text Libraries (Ported into C# by SD SkyKlouD)",
+        "libraryUrl": "https://github.com/twitter/twitter-text",
+        "licenseType": "Apache"
+    },
+    {
+        "libraryName": "MahApps.Metro",
+        "libraryDesc": "A toolkit for creating metro-style WPF applications. Lots of goodness out-of-the box.",
+        "libraryUrl": "https://mahapps.com/",
+        "licenseType": "MIT",
+        "dependencies": [
+            {
+                "libraryName": "ControlzEx",
+                "libraryDesc": "Shared Controlz for WPF",
+                "libraryUrl": "https://github.com/ControlzEx/ControlzEx",
+                "licenseType": "MIT"
+            }
+        ]
+    },
+    {
+        "libraryName": "MahApps.Metro.IconPacks.Material",
+        "libraryDesc": "The IconPacks library contains controls to use awesome icons from Material Design Icons for WPF and UWP apps in a simple way.",
+        "libraryUrl": "https://github.com/MahApps/MahApps.Metro.IconPacks",
+        "licenseType": "MIT",
+        "dependencies": [
+            {
+                "libraryName": "Material Design Icons",
+                "libraryDesc": "Material Design Icons' growing icon collection allows designers and developers targeting various platforms to download icons in the format, color and size they need for any project.",
+                "libraryUrl": "https://materialdesignicons.com/",
+                "licenseType": "SIL"
+            }
+        ]
+    },
+    {
+        "libraryName": "Json.NET",
+        "libraryDesc": "Popular high-performance JSON framework for .NET",
+        "libraryUrl": "https://www.newtonsoft.com/json",
+        "licenseType": "MIT"
+    },
+    {
+        "libraryName": "Costura.Fody",
+        "libraryDesc": "Embeds dependencies as resources.",
+        "libraryUrl": "https://github.com/Fody/Costura",
+        "licenseType": "MIT",
+        "dependencies": [
+            {
+                "libraryName": "Fody",
+                "libraryDesc": "Extensible tool for weaving .net assemblies",
+                "libraryUrl": "https://github.com/Fody/Fody",
+                "licenseType": "MIT"
+            }
+        ]
+    },
+    {
+        "libraryName": "WPFLocalizeExtension",
+        "libraryDesc": "A really easy way to localize any type of DependencyProperties or native Properties on DependencyObjects since 2008",
+        "libraryUrl": "https://github.com/XAMLMarkupExtensions/WPFLocalizationExtension",
+        "licenseType": "Ms-PL",
+        "dependencies": [
+            {
+                "libraryName": "XAMLMarkupExtensions",
+                "libraryDesc": "A base class for nested markup extensions and a collection of useful extensions for WPF",
+                "libraryUrl": "https://github.com/XAMLMarkupExtensions/XAMLMarkupExtensions",
+                "licenseType": "Ms-PL"
+            }
+        ]
+    }
+]
