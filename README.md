@@ -9,6 +9,8 @@ QuiqCompose의 데스크톱 앱(WPF) 개발은 잠정 중단합니다. 현재 Qu
 
   + 버전에 따른 변경 사항은 [이 문서](CHANGELOG.md)를 참고해주세요.
 
-# 라이선스
+# 다운로드
+[여기!!](https://github.com/SDSkyKlouD/QuiqCompose-OSS-WPF/releases)에서 최신 릴리즈를 다운로드 받으세요.
 
-  + [MIT License](LICENSE.md)
+# 라이선스
+[MIT License](LICENSE.md)
